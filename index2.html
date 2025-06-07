@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        table {
+            background: white;
+            border-collapse: collapse;
+            padding: 20px;
+            width: 600px;
+        }
+
+        th {
+            text-align: center;
+            font-size: 24px;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 5px;
+        }
+
+        button {
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <form onsubmit="generatePrimes(); return false;">
+        <table border="1">
+            <tr>
+                <th colspan="2">Prime Number Generator</th>
+            </tr>
+            <tr>
+                <td>Start</td>
+                <td><input type="number" id="start" required></td>
+            </tr>
+            <tr>
+                <td>End</td>
+                <td><input type="number" id="end" required></td>
+            </tr>
+            <tr>
+                <td>Prime Number</td>
+                <td><textarea id="output" rows="6" readonly></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit">Generate</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function isPrime(n) {
+            if (n <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) return false;
+            }
+            return true;
+        }
+
+        function generatePrimes() {
+            const start = document.getElementById('start').value;
+            const end =  document.getElementById('end').value;
+            let result = [];
+
+            for (let i = start; i <= end; i++) {
+                if (isPrime(i)){
+                    result.push(i);
+                }
+            }
+
+            document.getElementById('output').innerText = result.join(", ");
+        }
+    </script>
+
+</body>
+</html>

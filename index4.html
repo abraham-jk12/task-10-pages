@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            width : fit-content;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: beige;
+            margin: 100px auto;
+            
+            font-family :'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+
+        #name{
+            padding : 10px;
+            margin : 5px;
+            width : 250px;
+        }
+
+        #pass{
+           padding : 10px;
+        margin : 5px;
+        width : 250px;
+        }
+
+        #screwed{
+            margin: 10px;
+        }
+
+       #remember{
+        text-align: left;
+       }
+
+        button{
+            padding : 10px;
+            margin : 5px;
+            width : 250px;
+            margin : 10px;
+            background-color: rgb(39, 106, 169);
+            border-radius: 5px;
+            color: white;
+        }
+        
+        #screwed {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        padding-bottom : 20px;
+        border-bottom : 5px solid grey;
+        }
+
+        #error-msg{
+            color : green
+        }
+
+       
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Instagram</h1>
+        <input type = "text" id = "name" placeholder="Username">
+        <input type = "text" id = "pass" placeholder= "Password">
+
+        <button onclick = "validate()">Log in</button>
+
+        <div id = "screwed">
+        <label><input type = "checkbox" id = "remember">Remember me</label>
+        <a href = "#">Forgot Password?</a>
+        </div>
+
+        <hr>
+
+        <div>
+            Don't have an account? <a href = "#">sign up here.</a>
+        </div>
+
+        <p id = "error-msg"></p>
+    </div>
+
+    <script>
+    function validate(){
+        let name = document.getElementById("name").value;
+        let pass = document.getElementById("pass").value;
+
+        if(name != "user123" && pass != "momo345"){
+            document.getElementById("error-msg").innerText = "not correct";
+        }else{
+            document.getElementById("error-msg").innerText = "yayy!"
+        }
+    }
+
+
+    </script>
+
+</body>
+</html>
